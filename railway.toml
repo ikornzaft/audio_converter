@@ -1,0 +1,3 @@
+[build]
+  # Instala ffmpeg antes de instalar dependencias
+  preInstall = "apt-get update && apt-get install -y ffmpeg"
