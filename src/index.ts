@@ -1,8 +1,20 @@
 console.log('=== Starting Audio Converter API ===');
+import fs from 'fs';
+import path from 'path';
+
+// Crear carpetas uploads y converted si no existen
+const uploadDir = path.join(__dirname, '../uploads');
+const convertedDir = path.join(__dirname, '../converted');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+if (!fs.existsSync(convertedDir)) {
+  fs.mkdirSync(convertedDir, { recursive: true });
+}
+
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import path from 'path';
 import convertRouter from './routes/convert';
 
 // Load environment variables
